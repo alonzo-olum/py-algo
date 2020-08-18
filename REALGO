@@ -1,0 +1,102 @@
+- working with sums
+- python
+- sigma sum ([)
+- exponent ^
+
+sum( a * y for y in n) in math not a [ y =
+
+	n
+	[ay 
+	i=m
+/
+	[f(i) equivalent sum(f(i) for i in range(m,n+1))
+
+multiplicative constants:
+
+c(f(m)+..+f(n)) = cf(m)+..+cf(n)
+n       n       n
+[f(i) + [g(i) = [ f(i) + g(i)
+i=m     i=m     i=m 
+
+tournaments:
+i). round-robin/ handshake problem
+- the soln: n-1+n-2..+0 = sum(i for i in range(n))
+n-1
+[i = n(n-1)/2
+i=0
+
+ 							49
+caveat: sum of 100 numbers with 50 pairings gives us 101[i
+							i=0
+
+ii). hare & the tortoise/ knockout system
+h-1
+[2^i = n-1
+i=0
+	n=2^h gives hare
+	h=log n gives tortoise
+
+permutations as orderings of n objects. n!
+n . (n-1) . (n-2) . .. . 1
+
+caveat: 2^a+b is 2^a * 2^b
+
+binomial co-efficient/combinations as a combinations of k elements drawn from set n
+
+C(n,k)
+
+popular algo sol:
+
+0). T(n)=T(n-1)+1 - processing sequence 0(n)
+1). T(n)=T(n-1)+n - handshake problem 0(n^2)
+2). T(n)=2T(n-1)+1 - towers of hanoi 0(2n)
+3). T(n)=2T(n-1)+n  
+4). T(n)=T(n/2)+1 - binary search 0(lg n)
+5). T(n)=T(n/2)+n - randomized select 0(n)
+6). T(n)=2T(n/2)+1 - tree traversal 0(n)
+7). T(n)=2T(n/2)+n - sorting by divide & conquer 0(nlg n)
+
+4. 
+	use n = n/2 + 1
+	(n/2 + 1)
+	{(n/4 + 1) + 1}
+	{{(n/8 + 1) + 1} + 1}
+using i = lg n as base case
+									lg n-1
+T(1) = T(n/2^i) + [1
+									0
+		 = 1	+ i
+		 = 0(lg n) 
+
+5.
+	use n = n/2 + n
+	(n/2 + n)
+	{(n/4 + n/2) + n}
+	{{(n/8 + n/4) + n/2} + n}
+	{{{(n/16 + n/8) + n/4} + n/2} + n}
+using i = lg n as base case
+									lg n-1
+T(1) = T(n/2^i) + [n/2
+									0
+			= T(1) + [(n/2^i)
+			= 1 + n
+			= 0(n)
+
+6.
+	use n as 2T(n/2) + 1
+	2(n/2) + 1
+	2{2(n/4) + 1} + 1
+	2{2{2(n/8) + 1} + 1 + 1
+	8(n/8) + 3
+	n + lg n
+	= 0( n)
+
+7.
+	// Needs more proof especially the root
+	use n as 2T(n/2) + n
+	2(n/2) + n
+	2{2(n/4) + n/2}
+	2{2{2(n/8) + n/4} + n/2}
+	8{(n/8) + n.i/2^i
+	n + n.lg n
+	= 0(n lg n)
