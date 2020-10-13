@@ -60,11 +60,11 @@ popular algo sol:
 3).
 	use n = 2T(n-1) + n
 	2{2(n-1-1) + n-1} + n
-	2{2{2(n-1-1-1) + n-1-1} +  n-1} + n
+	2{3{2(n-1-1-1) + n-1-1} +  n-1} + n
 	2{2{2(n-3) + n-2} + n-1} + n
 	= 2 . n + n
 	= 2n
-	=0(2n)
+	= 0(2n)
 4. 
 	use n = n/2 + 1
 	(n/2 + 1)
@@ -137,14 +137,14 @@ T(1) = T(n/2^i) + [n/2
 	set log(a,n)/log(a,b) as m
 	b^m = n
 	m log b = log n
-	this neutralizes the base to constant decimal (10) and m to a contant
+	this neutralizes to a common base and m to a contant
 
 	2.5 Show that any increasing exponential (0(k^n) for k>1)
 	asymptotically dominates any polynomial (0(n^j) for j>0)
 	-	k^n >= cn^j
 	- set c = 1
 	- k^n > n^j
-	- n log(k,k) > log(k,n)
+	- n log(k,k) > j * log(k,n)
 	- n > jlog(k,n)
 
 	2.6 Show that any polynomial asymptotically dominates any 0(log(n)).
@@ -184,4 +184,67 @@ T(1) = T(n/2^i) + [n/2
 
 	2.12 Consider a graph representation. You use a dict and let each key be a pair(tuple) of two nodes, with corresponding value set to the edge weight.
 	W[u, v] = 24. What are pros & cons of this approach? How would you mitigate the cons?
-	- You dont need to access all neighbours of a node
+	- pros: You dont need to access all neighbours of a node
+	- cons: Handling membership, finding the degree of a node is handled differently,
+	potentially increasing complexity
+
+	3.1 Show that the properties described in the section `Working with sums` are correct ?
+	- c.f(n) + c.g(n)
+	- c [ 0(f(n) + 0(g))
+	- c [ 0(f(n) + g(n))
+	
+	3.2 Use rules of the road to show that n(n - 1)/2 is 0(n^2)
+	- n^2/2 - n/2
+	- n^2.k - n.k			# k constant factor
+	- k(n^2 - n)
+	- n^2 dominates the equation
+	
+	3.3 The sum of the first k non-negative integer powers of 2 is 2^k+1 - 1. Show how this property lets you represent any positive integer as binary number?
+	- why binary works is because any sum of 2 to power k is equivalent to n-1 (i.e. n is next power of 2).
+			k
+	- [ 2^i = n - 1			# k+1 in this case is the tortoise i.e. height of soln
+			k=0
+	- n = 2^k+1 - 1
+	- n = 2^(k+1)+1 - 1			# k = k + 1
+	- n + (2^(k+1)) = 2^(k+1)+1 - 1
+	- n + 2^(2) = 2^3 - 1		# using k = 1
+	- n + 4 = 7
+	- n = 3									# as powers of 2
+	- n = 7									# as powers of 2
+
+	3.4 In `hare & tortoise`, two methods of looking for a number are sketched. Turn these methods into number guessing algorithms & represent them as python programs?
+	-	h = lg n
+	- 2^h = n
+
+	3.5 Show that C(n,k) = C(n,n-k) ?
+	- C(n, k) = n!/k!(n-k)!
+	- C(n, n-k) = n!/(n-k)!(n-(n-k))!
+	- C(n, n-k) = n!/(n-k)!k!
+	- There are as many ways of removing k elements as there is leaving k elements
+
+	3.6 In the recursive function S early in the section `recursion & recurrences`, assume that instead of returning
+			S(seq, i+1) + seq[i], the function simply returned sec[0] + S(seq[1:]). What would the asymptotic running time be ?
+			- S(seq, i+1) + seq[i] = T(n-1) + 1
+			- seq[0] + S(seq[1:]) = T(1) + n-1
+			- T(1) + n-1
+			- T(n) + n.(n-1)
+			= 0(n2)
+	
+	3.7 Solve the following recurrences using repeated substitution ?
+			T(n) = T(n-1) + n 
+			= {n - 1 - 1 + n - 1} + n
+			= {n - 1 - 1 - 1 + n - 1 -1 + n} + n
+		T(1) = (n - i) + n - i + n.i						# let i = n
+			= 0(n2)
+			T(n) = 2T(n-1) + 1 
+
+			T(n) = 2T(n-1) + n
+	
+	3.8 Show that x^log y = y^log x, no matter the base of log ?
+
+	3.9 Show that f(n) is 0(n) for the implementation of merge sort ?
+
+	3.10 In merge sort objects are popped from the end of each half of the sequence(with pop()).
+			 It might be more intuitive to pop from the beginning with pop(0), to avoid reversing res.
+			 But pop(0), like insert(0), is a linear operation, as opposed to pop(), which is constant.
+			 What does this switch mean to the overall running time?
