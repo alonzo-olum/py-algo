@@ -1,12 +1,10 @@
 #!/bin/env bash
 
-
 function mysql_import {
   mysqlimport --local --fields-terminated-by=',' --lines-terminated-by='\r\n' $1 $2
 }
 
 # main block
-
 database=""
 while true; do
   touch default_sql.csv
