@@ -1,4 +1,4 @@
-#!/bin/env pythone
+#!/bin/env python
 
 def dfs_topsort(G):
     S, res = set(), []      # History & result

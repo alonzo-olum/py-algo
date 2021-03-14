@@ -60,7 +60,7 @@ popular algo sol:
 3).
 	use n = 2T(n-1) + n
 	2{2(n-1-1) + n-1} + n
-	2{3{2(n-1-1-1) + n-1-1} +  n-1} + n
+	2{2{2(n-1-1-1) + n-1-1} +  n-1} + n
 	2{2{2(n-3) + n-2} + n-1} + n
 	= 2 . n + n
 	= 2n
@@ -156,12 +156,13 @@ T(1) = T(n/2^i) + [n/2
 	2.7 Asymptotic complexities of various operations on Python lists, such as;
 	indexing, item assign, reversing, appending & inserting?
 	How would these be in a linked list?
-	What about example list.extend?
-	- anything that involves finding or modifying a certain position basically takes constant time because the underlying implementation is arrays.
 	- accessing a linked list involves traversing the list or atleast halfway giving linear running time
-	- Swapping elements around in both is constant time
-	- Modifying the list structure (by inserting or deleting element, except at the end) is generally linear for arrays/lists but can be done in constant time for linked list.
-
+	- Swapping elements around is constant time
+	- Modifying (inserting or deleting) is done in constant time for linked list.
+	What about example list.extend?
+	- Anything that involves finding or modifying a certain position basically takes constant time because the underlying implementation is arrays.
+	- Swapping elements around is constant time
+	- Modifying the list structure (by inserting or deleting element, except at the end) is generally linear
 	2.8 Show that 0(f) + 0(g) = 0(f+g) ? Also try your hand with max(0(f), 0(g))=0(max(f,g)) = 0(f+g)
 	- if function F(n) <= c.f(n)
 	- G(n) <= c.g(n)
@@ -173,10 +174,12 @@ T(1) = T(n/2^i) + [n/2
 
 	2.9 Let T be an arbitrary rooted tree with atleast 3 nodes, where each node has exactly 2 children.
 	If T has n leaves, how many nodes does it have?
-	- number of leaves as n
-	- number of each node children as 2m
-	- m + n-1
-	- m = n-1
+	- number of leaves is n
+	- number of node children is 2m
+	- number of internal nodes is m
+	= 2m = m + n-1			# internal nodes + except root
+	= 0(n) = m + n-1
+	= m <= n-1
 
 	2.10 Show that acyclic DAG can have any underlying structure whatsoever. Any undirected graph can be the underlying graph for DAG,
 	or, given a graph, you can always orient its edges so that the resulting digraph is a DAG
@@ -192,7 +195,7 @@ T(1) = T(n/2^i) + [n/2
 	- c.f(n) + c.g(n)
 	- c [ 0(f(n) + 0(g))
 	- c [ 0(f(n) + g(n))
-	
+
 	3.2 Use rules of the road to show that n(n - 1)/2 is 0(n^2)
 	- n^2/2 - n/2
 	- n^2.k - n.k			# k constant factor
@@ -214,6 +217,10 @@ T(1) = T(n/2^i) + [n/2
 
 	3.4 In `hare & tortoise`, two methods of looking for a number are sketched. Turn these methods into number guessing algorithms & represent them as python programs?
 	-	h = lg n
+		T(n) = lg n
+		= lg (lg n)
+		having lg n as m
+		= lg m
 	- 2^h = n
 
 	3.5 Show that C(n,k) = C(n,n-k) ?
@@ -232,11 +239,30 @@ T(1) = T(n/2^i) + [n/2
 	
 	3.7 Solve the following recurrences using repeated substitution ?
 			T(n) = T(n-1) + n 
-			= {n - 1 - 1 + n - 1} + n
-			= {n - 1 - 1 - 1 + n - 1 -1 + n} + n
-		T(1) = (n - i) + n - i + n.i						# let i = n
+
+			={n-1-1+n-1}+n
+			={n-1-1-1+n-1-1+n}+n
+			T(1)=(n-i)+n-i+n.i		#let i=n
 			= 0(n2)
+
 			T(n) = 2T(n-1) + 1 
+			n(1) = 2n-2+1
+			n(1) = 2n-1
+			
+			n(2) = 2{2(n-1-1)+1}+1
+			n(2) = 2{2(n-2)+1}+1
+			= 2{2n-4+1}+1
+			= 2{2n-3}+1
+			= 4n-5
+
+			 n(3) = 2{2{2(n-1-1-1)+1}+1}+1
+			 n(3) = 2{2{2(n-3)+1}+1}+1
+			 = 2{2{2n-6+1}+1}+1
+			 = 2{2{2n-5}+1}+1
+			 = 2{4n-10+1}+1
+			 = 2{4n-9}+1
+			 = 8n-17
+
 
 			T(n) = 2T(n-1) + n
 	

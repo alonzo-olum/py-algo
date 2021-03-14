@@ -26,14 +26,14 @@ def scc(G):
 # Main Block
 a, b, c, d, e, f, g, h, i = range(9)
 G = {
-        a: {b, c},                  #a
-        b: {d, e, i},               #b
-        c: {d},                     #c
-        d: {a, h},                  #d
-        e: {f},                     #e
-        f: {g},                     #f
-        g: {e, h},                  #g
-        h: {i},                     #h
-        i: {h}                      #i
+        a: [b, c],                  #a
+        b: [d, e, i],               #b
+        c: [d],                     #c
+        d: [a, h],                  #d
+        e: [f],                     #e
+        f: [g],                     #f
+        g: [e, h],                  #g
+        h: [i],                     #h
+        i: [h]                      #i
         }
 print (scc(G))
