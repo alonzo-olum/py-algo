@@ -1,0 +1,21 @@
+ML
+machine learning a research discipline at the intersection of statistics, a.i and computer science,
+is about extracting knowledge from data.
+It is also known as predictive/statistical learning.
+
+Outside of commercial applications,
+ml has had a tremendous influence on the way data driven research is done.
+
+- Supervised Learning: thesse are ml algorithms that automate decision making processes by generalizing from known examples.
+More generally the user provides the algorithm with pairs of inputs & desired outputs, so that the algorithm finds a way to produce the desired output.
+The the algorithm is able to create an output for an input it has never seen before without the help from a human.
+Machine learning algorithms that learn from input-output pairs are called supervised learning.
+	- identifying ZIP code from handwritten digits on envelope
+	- determining whether a tumour is benign based on a medical scan
+	- detecting fraudulent credit card transactions
+
+This is in-contrast with another form of learning known as unsupervised algorithms,
+where the outputs are unknown. Its examples include; 
+	- identifying topics in a blog
+	- segmenting customer preferences
+	- detecting abnormal activity in a website

@@ -15,3 +15,15 @@ def topsort(G):
             if count[v] == 0:               # New valid start nodes?
                 Q.append(v)                 # Queue it next
     return S
+
+# main program block
+G = {
+        0: {1, 5},
+        1: {2, 3},
+        2: {3},
+        3: {4, 5},
+        4: {5},
+        5: {}
+    }  # dicts of sets
+
+print topsort(G)

@@ -1,5 +1,5 @@
 def output_words(num):
-    ones=['','one', 'two', 'three', 'four','five','six','seven','eight',
+    ones=['zero','one', 'two', 'three', 'four','five','six','seven','eight',
             'nine','ten','eleven','twelve','thirtheen','fourteen','fifteen',
             'sixteen','seventeen','eighteen','nineteen']
     tens=['twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety']

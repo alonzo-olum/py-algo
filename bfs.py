@@ -29,5 +29,6 @@ P = bfs(G, a)
 path = [b]
 while P[b] is not None:
     path.append(P[b])
+    print path
     b = P[b]
 print path.reverse()
