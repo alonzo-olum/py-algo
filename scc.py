@@ -13,10 +13,11 @@ def tr(G):                                      # Transpose (reverse edges) G
 
 def scc(G):
     GT = tr(G)                                  # Get the transposed graph
-    print ("transposed G %s") % (GT)
+    print ("[transposed G] %s" % (GT))
     sccs, seen = [], set()
+    print("[graph]: %s" % (G))
     for u in dfs_topsort(G):                     # DFS starting point
-        print ("dfs_ts %d") % (u)
+        print ("[dfs_ts] %d" % (u))
         if u in seen: continue
         C = walk(GT, u, seen)                   # Don't go "backwards" (seen)
         seen.update(C)                          # Seen traversal C
@@ -36,4 +37,16 @@ G = {
         h: [i],                     #h
         i: [h]                      #i
         }
-print (scc(G))
+
+_G = {
+        a: {b,c},
+        b: {d,e},
+        c: {d},
+        d: {a},
+        e: {f},
+        f: {g},
+        g: {h},
+        h: {i},
+        i: {h}
+    }
+print (scc(_G))

@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 
-from random import randrange
-from random import randint
+from random import randrange,randint
 from collections import defaultdict
 
 # index keys 0,1,2,3 as airports in a dictionary
 # random integral values 0-8 representing hours to the airport
-def init_A(n):
+def init_A(n=4):
     a,b,c,d=range(n)
     return {a: randrange(2*n), b: randrange(2*n), c: randrange(2*n), d: randrange(2*n)}
 
@@ -40,7 +39,7 @@ def relaxation(A, B, C, n, N):
 # main block
 n=4
 N=120
-A=init_A(n)
+A=init_A()
 B=init_B(n)
 C=init_C(n)
 

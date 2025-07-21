@@ -5,4 +5,4 @@ def is_prime(n):
 	
     return True
 #main block
-print is_prime(47)
+print is_prime(121)

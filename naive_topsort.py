@@ -9,17 +9,18 @@ def naive_topsort(G, S=None):
     print("seq: {}".format(seq))
     min_i = 0
     for i, u in enumerate(seq):
-        if v in G[u]: min_i = i+1       # After all dependencies
+        if v in G[u]:
+            min_i = i+1       # After all dependencies
     seq.insert(min_i, v)
     return seq
 
 a, b, c, d, e, f, g = range(7)
-G = [
-        [b, f],         #a
-        [c, d],         #b
-        [d],            #c
-        [e],            #d
-        [f],            #e
-        []              #f
-        ]
-print naive_topsort(G[a])
+G = {
+        a: [b, f],         #a
+        b: [c, d],         #b
+        c: [d],            #c
+        d: [e],            #d
+        e: [f],            #e
+        f: []              #f
+        }
+print naive_topsort(G)

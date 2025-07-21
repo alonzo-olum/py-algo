@@ -24,16 +24,15 @@ def components(G):
     return comp
 
 # Main program
-#a, b, c, d, e, f, g, h  = range(8)
-#G = [
-#        {b, c, d, e, f},    #a
-#        {c, e},             #b
-#        {d},                #c
-#        {e},                #d
-#        {f},                #e
-#        {c, g, h},          #f
-#        {f, h},             #g
-#        {f, g}              #h
-#        ]
-##print(walk(G, c))
-#print (components(G))
+#a,b,c,d,e,f,g,h = range(8)
+#G = {
+#        a: { b, d },
+#        b: { c, d },
+#        c: { f, g, h},
+#        d: { e, g },
+#        e: { f, h },
+#        f: { h },
+#        g: { e, h },
+#        h: set()
+#    }
+#print(components(G))

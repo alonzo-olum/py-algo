@@ -17,13 +17,14 @@ def topsort(G):
     return S
 
 # main program block
+a, b, c, d, e, f = range(6)
 G = {
-        0: {1, 5},
-        1: {2, 3},
-        2: {3},
-        3: {4, 5},
-        4: {5},
-        5: {}
+        a: {b, f},
+        b: {c, d},
+        c: {d},
+        d: {e, f},
+        e: {f},
+        f: {}
     }  # dicts of sets
 
-print topsort(G)
+print(topsort(G))
