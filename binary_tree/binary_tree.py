@@ -85,5 +85,5 @@ btree.insert(75)
 print(btree.tree_node.right_child.value)
 
 #delete is best illustrated from the './binary_tree_test.py'
-#btree.delete(75)
-#print(btree.tree_node.right_child.value)
+del_node = btree.delete(75)
+print(del_node.value)
