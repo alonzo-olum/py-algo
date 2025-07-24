@@ -32,5 +32,5 @@ def build_digest_map(topdir):
     return digest_map
 # main code block
 if __name__ == '__main__':
-    digest_map = build_digest_map("")
+    digest_map = build_digest_map("~/Documents/digest/")
     print(len(digest_map))
