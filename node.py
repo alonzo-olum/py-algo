@@ -18,8 +18,19 @@ class Node:
             node.rgt = Node.insert(node.rgt, key, val)
         return node
 
+    @staticmethod
+    def search(node, key):
+        if node is None: raise KeyError
+        if node.key == key:
+            return node
+        elif node.key < key:
+            return Node.search(node.rgt, key)
+        else:
+            return Node.search(node.lft, key)
+
 # main block
 if __name__ == '__main__':
     node = Node(8, 8)
-    Node.insert(node, 4, 4)
+    ret = Node.insert(node, 4, 4)
+    print(ret.value)
     print(node.lft.value)
