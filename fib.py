@@ -1,3 +1,5 @@
+#!/bin/env python
+
 def fibonacci():
     x,y=0,1
     while(True):
