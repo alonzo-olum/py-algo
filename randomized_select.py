@@ -1,7 +1,6 @@
 #!/bin/env python3
 
 class RandomizedSelect:
-    
     def __init__(self):
         pass
 
