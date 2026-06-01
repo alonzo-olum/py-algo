@@ -3,6 +3,7 @@
 class Node:
     lft = None
     rgt = None
+    lvl = 1                         # specific for solving AA-Tree Balancing
 
     def __init__(self, key, val):
         self.key = key
@@ -11,7 +12,7 @@ class Node:
     @staticmethod
     def insert(node, key, val):
         if node is None: return Node(key, val)
-        if node.key == key: node.val = val
+        if node.key == key: node.value = val
         elif key < node.key:
             node.lft = Node.insert(node.lft, key, val)
         else:
